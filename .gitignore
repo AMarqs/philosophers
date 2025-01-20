@@ -1,0 +1,28 @@
+### Visual Code ###
+.vscode/
+
+
+### System Files ###
+
+# General
+.DS_Store
+
+
+### C ###
+
+# Object files
+*.o
+*.obj
+
+# Libraries
+*.lib
+*.a
+
+# EXECUTABLES
+*.exe
+*.out
+
+# Compile Results
+*.cmd
+*.tmp
+.tmp_versions/
