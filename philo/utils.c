@@ -6,22 +6,42 @@
 /*   By: alba <alba@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 22:21:09 by alba              #+#    #+#             */
-/*   Updated: 2025/03/15 22:29:52 by alba             ###   ########.fr       */
+/*   Updated: 2025/03/16 21:02:15 by alba             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
+int	ft_atoi(const char *str)
+{
+	size_t	i;
+	int		sign;
+	int		num;
+
+	i = 0;
+	sign = 1;
+	num = 0;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+		if (str[i++] == '-')
+			sign = -1;
+	while (str[i] >= '0' && str[i] <= '9')
+		num = num * 10 + str[i++] - '0';
+	num *= sign;
+	return (num);
+}
+
 long int	get_time(void) // obtengo el tiempo actual en microsegundos
 {
-	struct s_timeval	current_time;
-	long int			time;
+	struct timeval	time;
+	long int		current_time;
 
-	if (gettimeofday(&current_time, NULL) == -1)
+	if (gettimeofday(&time, NULL) == -1)
 		return (print_err("Error getting time", -1)); // poner mejor
-	gettimeofday(&current_time, NULL);
-	time = (current_time.tv_sec * 1000) + (current_time.tv_usec / 1000);
-	return (time);
+	//gettimeofday(&time, NULL);
+	current_time = (time.tv_sec * 1000) + (time.tv_usec / 1000);
+	return (current_time);
 }
 
 void	ft_putstr_fd(char *s, int fd)

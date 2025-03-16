@@ -6,7 +6,7 @@
 /*   By: alba <alba@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 21:33:48 by alba              #+#    #+#             */
-/*   Updated: 2025/03/15 22:29:19 by alba             ###   ########.fr       */
+/*   Updated: 2025/03/16 21:00:24 by alba             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,12 @@
 
 typedef struct s_philo
 {
-	int	number_of_philosophers;
-	int	time_to_die;
-	int	time_to_eat;
-	int	time_to_sleep;
+	int	number_philos;
+	int	time_die;
+	int	time_eat;
+	int	time_sleep;
+	int	must_eat;
 }	t_philo;
-
-struct	s_timeval
-{
-	time_t		tv_sec;
-	suseconds_t	tv_usec;
-};
 
 //-----------//
 // FUNCTIONS //----------------------------------------------------------------
