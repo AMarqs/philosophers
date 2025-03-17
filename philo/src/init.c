@@ -6,22 +6,33 @@
 /*   By: alba <alba@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 20:44:42 by alba              #+#    #+#             */
-/*   Updated: 2025/03/16 20:59:06 by alba             ###   ########.fr       */
+/*   Updated: 2025/03/17 22:11:32 by alba             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	init_args(char **argv, t_philo *philo)
+t_philo	*init_args(char **argv)
 {
-	philo->number_philos = argv[1];
-	philo->time_die = argv[2];
-	philo->time_eat = argv[3];
-	philo->time_sleep = argv[4];
-	philo->must_eat = argv[5];
+	t_philo	*philo;
+
+	philo = malloc(sizeof(t_philo));
+	if (!philo)
+		malloc_error();
+	philo->num_philos = ft_atoi(argv[1]);
+	philo->time_die = ft_atoi(argv[2]);
+	philo->time_eat = ft_atoi(argv[3]);
+	philo->time_sleep = ft_atoi(argv[4]);
+	philo->must_eat = ft_atoi(argv[5]);
+	return (philo);
 }
 
-void	initialization(void)
+void	initialization(t_philo *philo)
 {
-	
+	philo->philos = (t_philo *)malloc(sizeof(t_philo) * philo->num_philos);
+	if (!philo->philos)
+		malloc_error();
+	philo->forks = (t_fork *)malloc(sizeof(t_philo) * philo->num_philos);
+	if (!philo->forks)
+		malloc_error();
 }

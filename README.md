@@ -16,7 +16,7 @@ Aquí tienes una lista de cosas que deberías conocer si quieres superar este pr
 - Todos los filósofos necesitan comer y nunca deben morir de hambre.
 - Los filósofos no hablan entre ellos.
 - Los filósofos no saben si otro filósofo va a morir.
-- ¡No debería hacer falta decir que todos deben evitar morir
+- ¡No debería hacer falta decir que todos deben evitar morir!
 
 <br>
 
@@ -79,7 +79,7 @@ Los logs de tu programa:
 Las reglas específicas para la parte obligatoria son:
 
 - Cada filósofo debe ser un hilo.
-- Hay un tenedor entre cada filósofo. por lo tanto, si hay varios filósofos, cada filósofo debe tener un tenedor a su izquierda y otro a su derecha. si solo hay un filósofo, solo habrá un tenedor en la mesa.
+- Hay un tenedor entre cada filósofo. por lo tanto, si hay varios filósofos, cada filósofo debe tener un tenedor a su izquierda y otro a su derecha. Si solo hay un filósofo, solo habrá un tenedor en la mesa.
 - Para prevenir que los filósofos dupliquen los tenedores, deberás proteger los estados de los tenedores con un mutex por cada uno de ellos.
 
 <br>
