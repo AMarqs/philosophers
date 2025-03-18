@@ -6,7 +6,7 @@
 #    By: alba <alba@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/17 12:52:14 by alba              #+#    #+#              #
-#    Updated: 2025/03/17 19:45:48 by alba             ###   ########.fr        #
+#    Updated: 2025/03/18 21:27:41 by alba             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,10 @@ NAME = philo
 SRCS = 	philo.c \
 		check.c \
 		init.c \
+		routine.c \
 		utils.c \
-		error.c
+		basic_functions.c \
+		errors.c
 
 SRC_DIR = src
 SRC = $(addprefix $(SRC_DIR)/, $(SRCS))

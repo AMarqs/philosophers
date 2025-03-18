@@ -6,7 +6,7 @@
 /*   By: alba <alba@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 21:15:26 by alba              #+#    #+#             */
-/*   Updated: 2025/03/17 22:24:47 by alba             ###   ########.fr       */
+/*   Updated: 2025/03/18 21:28:37 by alba             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,24 @@
 
 int	main(int argc, char **argv)
 {
-	t_philo	*philo;
+	t_data	data;
+	t_philo	philo;
 
 	if (check_args(argc, argv))
 	{
 		ft_putstr_fd("ERROR: Invalid arguments", 1);
 		return (1);
 	}
-	philo = init_args(argv);
-	printf("hola %i", philo->num_philos);
-	initialization(philo);
+	if (initialization(&data, &philo, argv))
+	{
+		ft_putstr_fd("ERROR: Initialization fail", 1);
+		return (1);
+	}
+	// if (thread_routine(&data, &philo))
+	// {
+	// 	ft_putstr_fd("ERROR: Simulation fail", 1);
+	// 	return (1);
+	// }
+	free_all(&data, &philo);
 	return (0);
 }

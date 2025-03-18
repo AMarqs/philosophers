@@ -6,7 +6,7 @@
 /*   By: alba <alba@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 20:18:35 by alba              #+#    #+#             */
-/*   Updated: 2025/03/17 22:23:39 by alba             ###   ########.fr       */
+/*   Updated: 2025/03/18 20:10:05 by alba             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,16 @@ int	check_args(int argc, char **argv)
 {
 	int	i;
 
-	i = 1;
+	i = argc;
 	if (argc < 5 || argc > 6)
 		return (1);
-	while (i < 5)
-		if (ft_atoi(argv[i++]) <= 0) // no sé si esto comprueba que solo sean números
+	while (i > 1)
+		if (is_digit(argv[i--]))
 			return (1);
+	if (ft_atoi(argv[1]) < 0)
+		return (1);
+	if (ft_atoi(argv[2]) <= 0 || ft_atoi(argv[3]) <= 0 || ft_atoi(argv[4]) <= 0)
+		return (1);
 	if (argv[5] && ft_atoi(argv[5]) < 0)
 		return (1);
 	return (0);
