@@ -3,19 +3,20 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: alba <alba@student.42.fr>                  +#+  +:+       +#+         #
+#    By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/03/17 12:52:14 by alba              #+#    #+#              #
-#    Updated: 2025/03/18 21:27:41 by alba             ###   ########.fr        #
+#    Created: 2025/03/17 12:52:14 by albmarqu          #+#    #+#              #
+#    Updated: 2025/03/25 22:41:04 by albmarqu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 
-SRCS = 	philo.c \
+SRCS = 	main.c \
 		check.c \
 		init.c \
 		routine.c \
+		monitor.c \
 		utils.c \
 		basic_functions.c \
 		errors.c

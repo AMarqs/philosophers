@@ -3,16 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alba <alba@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/18 20:58:12 by alba              #+#    #+#             */
-/*   Updated: 2025/03/18 21:21:56 by alba             ###   ########.fr       */
+/*   Created: 2025/03/18 20:58:12 by albmarqu          #+#    #+#             */
+/*   Updated: 2025/03/25 22:24:07 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	thread_routine(t_data *data)
+void	*cycle(void *arg)
 {
-	return (0);
+	t_philo	*philo = (t_philo *)arg;
+	t_data	*data = philo->data;
+
+	while (!data->dead)
+	{
+		print_action(data, philo->id, "is thinking");
+
+		pthread_mutex_lock(philo->l_fork);
+		print_action(data, philo->id, "has taken a fork");
+		pthread_mutex_lock(philo->r_fork);
+		print_action(data, philo->id, "has taken a fork");
+		print_action(data, philo->id, "is eating");
+		philo->last_meal = gettime();
+		sleep_time(data->time_eat);
+		philo->num_meals++;
+
+		pthread_mutex_unlock(philo->l_fork);
+		pthread_mutex_unlock(philo->r_fork);
+
+		print_action(data, philo->id, "is sleeping");
+		sleep_time(data->time_sleep);
+	}
 }

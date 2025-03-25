@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   basic_functions.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alba <alba@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/18 21:25:36 by alba              #+#    #+#             */
-/*   Updated: 2025/03/18 21:26:34 by alba             ###   ########.fr       */
+/*   Created: 2025/03/18 21:25:36 by albmarqu          #+#    #+#             */
+/*   Updated: 2025/03/25 22:20:31 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,3 +64,25 @@ void	ft_putstr_fd(char *s, int fd)
 		return ;
 	write(fd, s, ft_strlen(s));
 }
+
+// char	*put_strjoin(char const *s1, char const *s2)
+// {
+// 	size_t	i;
+// 	size_t	j;
+// 	char	*str;
+
+// 	if (!s1)
+// 		return (ft_strdup(s2));
+// 	i = ft_strlen(s1) + ft_strlen(s2);
+// 	str = (char *)malloc(sizeof(char) * (i + 1));
+// 	if (!str)
+// 		return (NULL);
+// 	i = -1;
+// 	while (s1[++i])
+// 		str[i] = s1[i];
+// 	j = 0;
+// 	while (s2[j])
+// 		str[i++] = s2[j++];
+// 	str[i] = '\0';
+// 	return (str);
+// }

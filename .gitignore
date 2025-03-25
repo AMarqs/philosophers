@@ -23,6 +23,7 @@
 *.out
 
 # Compile Results
+philo
 *.cmd
 *.tmp
 .tmp_versions/
