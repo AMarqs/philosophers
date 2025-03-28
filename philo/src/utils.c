@@ -6,11 +6,9 @@
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 22:21:09 by albmarqu          #+#    #+#             */
-/*   Updated: 2025/03/28 14:34:05 by albmarqu         ###   ########.fr       */
+/*   Updated: 2025/03/28 16:25:51 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-// bien
 
 #include "philo.h"
 
@@ -42,13 +40,13 @@ void	print_log(t_data *data, int philo, char *log)
 	long long	actual_time;
 
 	actual_time = gettime() - data->init_time;
-	pthread_mutex_lock(&data->log);
+	pthread_mutex_lock(data->log);
 	if (!data->dead)
 	{
 		write(1, &actual_time, 1);
 		write(1, &philo, 1);
-		fd_putstr_fd(log, 1);
-		write(1, '\n', 1);
+		ft_putstr_fd(log, 1);
+		write(1, "\n", 1);
 	}
-	pthread_mutex_unlock(&data->log);
+	pthread_mutex_unlock(data->log);
 }

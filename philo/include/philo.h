@@ -6,11 +6,9 @@
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 21:33:48 by albmarqu          #+#    #+#             */
-/*   Updated: 2025/03/28 14:32:45 by albmarqu         ###   ########.fr       */
+/*   Updated: 2025/03/28 16:11:09 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-// bien
 
 #ifndef PHILO_H
 # define PHILO_H
@@ -96,7 +94,5 @@ void		ft_putstr_fd(char *s, int fd);
 // error.c
 //void		free_all(t_data *data, t_philo *philo);
 void		malloc_error(void);
-
-void		*cycle(void *arg);
 
 #endif

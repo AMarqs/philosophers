@@ -6,15 +6,11 @@
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 21:15:04 by albmarqu          #+#    #+#             */
-/*   Updated: 2025/03/28 14:35:35 by albmarqu         ###   ########.fr       */
+/*   Updated: 2025/03/28 15:59:13 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// bien
-
 #include "philo.h"
-
-// no sé por que esto no funciona
 
 void	*monitoring(void *arg)
 {

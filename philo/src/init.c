@@ -6,11 +6,9 @@
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 20:44:42 by albmarqu          #+#    #+#             */
-/*   Updated: 2025/03/28 14:33:27 by albmarqu         ###   ########.fr       */
+/*   Updated: 2025/03/28 16:08:54 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-// bien
 
 #include "philo.h"
 
@@ -25,7 +23,7 @@ int	init_mutex(t_data *data)
 		malloc_error();
 		return (1);
 	}
-	pthread_mutex_init(&data->log, NULL);
+	pthread_mutex_init(data->log, NULL);
 	while (i < data->num_philos)
 	{
 		pthread_mutex_init(&data->forks[i], NULL);
@@ -44,7 +42,6 @@ int	init_data(t_data *data, int argc, char **argv)
 		data->must_eat = ft_atoi(argv[5]);
 	else
 		data->must_eat = -1;
-	//data->finished = 0;
 	data->dead = 0;
 	if (init_mutex(data))
 		return (1);

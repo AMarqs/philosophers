@@ -6,11 +6,9 @@
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 21:15:26 by albmarqu          #+#    #+#             */
-/*   Updated: 2025/03/28 14:40:30 by albmarqu         ###   ########.fr       */
+/*   Updated: 2025/03/28 16:05:31 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-// bien
 
 #include "philo.h"
 
@@ -30,15 +28,12 @@
 // 	return (1);
 // }
 
-
 // // mutex
 // pthread_mutex_t mutex;
 // pthread_mutex_init(&mutex, NULL);
 // pthread_mutex_lock(&mutex);
 // pthread_mutex_unlock(&mutex);
 // pthread_mutex_destroy(&mutex);
-
-// holaaaaaa
 
 int	main(int argc, char **argv)
 {
@@ -55,15 +50,13 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	init_philos(&data);
-
-// no se por que esto no funciona
 	
 	// if (routine(&data))
 	// {
 	// 	ft_putstr_fd("ERROR: Simulation fail", 1);
 	// 	return (1);
 	// }
-	free_all(&data);
+	// free_all(&data);
 	// // Step 3: Cleanup resources
     // for (int i = 0; i < data.num_philos; i++)
     //     pthread_mutex_destroy(&data.forks[i]);
