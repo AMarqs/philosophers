@@ -6,7 +6,7 @@
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 21:15:26 by albmarqu          #+#    #+#             */
-/*   Updated: 2025/03/28 16:05:31 by albmarqu         ###   ########.fr       */
+/*   Updated: 2025/03/28 17:19:04 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,12 @@ int	main(int argc, char **argv)
 		ft_putstr_fd("ERROR: Initialization fail", 1);
 		return (1);
 	}
-	init_philos(&data);
-	
-	// if (routine(&data))
-	// {
-	// 	ft_putstr_fd("ERROR: Simulation fail", 1);
-	// 	return (1);
-	// }
-	// free_all(&data);
+	if (init_philos(&data))
+	{
+		ft_putstr_fd("ERROR: Initialization fail", 1);
+		return (1);
+	}
+	free_all(&data);
 	// // Step 3: Cleanup resources
     // for (int i = 0; i < data.num_philos; i++)
     //     pthread_mutex_destroy(&data.forks[i]);

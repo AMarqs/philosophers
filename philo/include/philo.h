@@ -6,7 +6,7 @@
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 21:33:48 by albmarqu          #+#    #+#             */
-/*   Updated: 2025/03/28 16:11:09 by albmarqu         ###   ########.fr       */
+/*   Updated: 2025/03/28 17:23:02 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int			check_args(int argc, char **argv);
 // init.c
 int			init_data(t_data *data, int argc, char **argv);
 int			init_mutex(t_data *data);
-void		init_philos(t_data *data);
+int			init_philos(t_data *data);
 
 // routine.c
 void		*cycle(void *arg);
