@@ -6,9 +6,11 @@
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 20:44:42 by albmarqu          #+#    #+#             */
-/*   Updated: 2025/03/25 22:37:00 by albmarqu         ###   ########.fr       */
+/*   Updated: 2025/03/28 14:33:27 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// bien
 
 #include "philo.h"
 

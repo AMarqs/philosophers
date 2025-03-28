@@ -6,9 +6,11 @@
 #    By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/17 12:52:14 by albmarqu          #+#    #+#              #
-#    Updated: 2025/03/25 22:41:04 by albmarqu         ###   ########.fr        #
+#    Updated: 2025/03/28 14:34:15 by albmarqu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+// bien
 
 NAME = philo
 

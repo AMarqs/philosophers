@@ -6,9 +6,11 @@
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 21:33:48 by albmarqu          #+#    #+#             */
-/*   Updated: 2025/03/25 22:42:18 by albmarqu         ###   ########.fr       */
+/*   Updated: 2025/03/28 14:32:45 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+// bien
 
 #ifndef PHILO_H
 # define PHILO_H
