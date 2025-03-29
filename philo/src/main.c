@@ -6,7 +6,7 @@
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 21:15:26 by albmarqu          #+#    #+#             */
-/*   Updated: 2025/03/28 17:19:04 by albmarqu         ###   ########.fr       */
+/*   Updated: 2025/03/29 20:10:15 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,22 +44,23 @@ int	main(int argc, char **argv)
 		ft_putstr_fd("ERROR: Invalid arguments", 1);
 		return (1);
 	}
+	// if (ft_atoi(argv[1]) == 1)
+	// {
+	// 	sleep_time((long long)ft_atoi(argv[2]));
+	// 	long long time = gettime();
+	// 	printf("%lld %d %s\n", time, 1, "died");
+	// 	return (0);
+	// }
 	if (init_data(&data, argc, argv))
 	{
 		ft_putstr_fd("ERROR: Initialization fail", 1);
 		return (1);
 	}
-	if (init_philos(&data))
+	if (philo_thread(&data))
 	{
-		ft_putstr_fd("ERROR: Initialization fail", 1);
+		ft_putstr_fd("ERROR: Simulation fail", 1);
 		return (1);
 	}
 	free_all(&data);
-	// // Step 3: Cleanup resources
-    // for (int i = 0; i < data.num_philos; i++)
-    //     pthread_mutex_destroy(&data.forks[i]);
-    // pthread_mutex_destroy(&data.print_mutex);
-    // free(data.forks);
-    // free(data.philos);
 	return (0);
 }

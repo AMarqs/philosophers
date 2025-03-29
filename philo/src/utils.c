@@ -6,7 +6,7 @@
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 22:21:09 by albmarqu          #+#    #+#             */
-/*   Updated: 2025/03/28 17:01:53 by albmarqu         ###   ########.fr       */
+/*   Updated: 2025/03/29 19:59:35 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,18 +35,15 @@ void	sleep_time(long long time)
 		usleep(100);
 }
 
-void	print_log(t_data *data, int philo, char *log)
+void	print_log(t_data *data, int philo_id, char *log)
 {
 	long long	actual_time;
 
 	actual_time = gettime() - data->init_time;
+	if (!data || !data->log)
+		return ;
 	pthread_mutex_lock(data->log);
 	if (!data->dead)
-	{
-		write(1, &actual_time, 1);
-		write(1, &philo, 1);
-		ft_putstr_fd(log, 1);
-		write(1, "\n", 1);
-	}
+		printf("%lld %d %s\n", actual_time, philo_id, log);
 	pthread_mutex_unlock(data->log);
 }

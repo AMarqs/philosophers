@@ -6,7 +6,7 @@
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 21:33:48 by albmarqu          #+#    #+#             */
-/*   Updated: 2025/03/28 17:23:02 by albmarqu         ###   ########.fr       */
+/*   Updated: 2025/03/29 19:38:20 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,10 @@ typedef struct s_data
 	long long		time_eat;
 	long long		time_sleep;
 	int				must_eat;
-	//int				finished;
 	int				dead;
+	pthread_mutex_t	*dead_mutex;
+	int				done;
+	pthread_mutex_t	*done_mutex;
 	long long		init_time;
 	pthread_mutex_t	*log;
 	pthread_mutex_t	*forks;
@@ -73,12 +75,17 @@ int			check_args(int argc, char **argv);
 int			init_data(t_data *data, int argc, char **argv);
 int			init_mutex(t_data *data);
 int			init_philos(t_data *data);
+int			philo_thread(t_data *data);
 
 // routine.c
-void		*cycle(void *arg);
+void		*philo_routine(void *arg);
+void		eat(void *arg);
+void		zzz(void *arg);
+void		think(void *arg);
 
 // monitor.c
-void		*monitoring(void *arg);
+void		*dead_monitor(void *arg);
+void		*meal_monitor(void *arg);
 
 // utils.c
 long long	gettime(void);
@@ -86,13 +93,13 @@ void		sleep_time(long long time);
 void		print_log(t_data *data, int philo, char *log);
 
 // basic_functions.c
-size_t		ft_strlen(const char *s);
+int			ft_strlen(char *s);
 int			is_digit(char *s);
-int			ft_atoi(const char *str);
+int			ft_atoi(char *str);
 void		ft_putstr_fd(char *s, int fd);
 
-// error.c
-//void		free_all(t_data *data, t_philo *philo);
-void		malloc_error(void);
+// errors.c
+void		free_all(t_data *data);
+//void		malloc_error(void);
 
 #endif

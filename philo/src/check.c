@@ -6,7 +6,7 @@
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 20:18:35 by albmarqu          #+#    #+#             */
-/*   Updated: 2025/03/28 16:54:28 by albmarqu         ###   ########.fr       */
+/*   Updated: 2025/03/29 16:02:54 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,15 @@ int	check_args(int argc, char **argv)
 {
 	int	i;
 
-	i = argc;
+	i = 1;
 	if (argc < 5 || argc > 6)
 		return (1);
-	while (i > 1)
-		if (is_digit(argv[i--]))
+	while (i < argc)
+	{
+		if (!argv[i] || is_digit(argv[i]) == 1)
 			return (1);
+		i++;
+	}
 	if (ft_atoi(argv[1]) < 0)
 		return (1);
 	if (ft_atoi(argv[2]) <= 0 || ft_atoi(argv[3]) <= 0 || ft_atoi(argv[4]) <= 0)

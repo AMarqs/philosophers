@@ -6,15 +6,15 @@
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 21:25:36 by albmarqu          #+#    #+#             */
-/*   Updated: 2025/03/28 15:59:18 by albmarqu         ###   ########.fr       */
+/*   Updated: 2025/03/29 19:23:41 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-size_t	ft_strlen(const char *s)
+int	ft_strlen(char *s)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (s[i])
@@ -24,9 +24,11 @@ size_t	ft_strlen(const char *s)
 
 int	is_digit(char *s)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
+	if (!s)
+		return (1);
 	if (!s[i])
 		return (1);
 	if (s[i] == '+' || s[i] == '-')
@@ -38,15 +40,17 @@ int	is_digit(char *s)
 	return (0);
 }
 
-int	ft_atoi(const char *str)
+int	ft_atoi(char *str)
 {
-	size_t	i;
+	int		i;
 	int		sign;
 	int		num;
 
 	i = 0;
 	sign = 1;
 	num = 0;
+	// if (!str)
+	// 	return ;
 	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
 		i++;
 	if (str[i] == '-' || str[i] == '+')
