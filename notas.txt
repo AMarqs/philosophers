@@ -1,3 +1,5 @@
+valgrind -s --leak-check=full --show-leak-kinds=all --track-origins=yes ./philo 5 800 200 200 7
+
 Chequeo argumentos -> BIEN
 
 -----
@@ -69,6 +71,10 @@ ft_putstr_fd(log, 1);
 pthread_mutex_unlock(data->log);
 
 
+
+
+
+- hace una funcion dead loop en threads.c
 
 
 

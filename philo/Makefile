@@ -6,7 +6,7 @@
 #    By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/17 12:52:14 by albmarqu          #+#    #+#              #
-#    Updated: 2025/03/28 16:04:40 by albmarqu         ###   ########.fr        #
+#    Updated: 2025/03/30 19:42:32 by albmarqu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,9 @@ NAME = philo
 SRCS = 	main.c \
 		check.c \
 		init.c \
+		thread.c \
 		routine.c \
-		monitor.c \
+		monitors.c \
 		utils.c \
 		basic_functions.c \
 		errors.c
@@ -30,8 +31,8 @@ OBJ = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 INC_DIR = include
 HEADERS := -I $(INC_DIR)
 
-FLAGS = -Wall -Wextra -Werror -g 
-# -fsanitize=address
+FLAGS = -Wall -Wextra -Werror -g -fsanitize=address
+# 
 # -fsanitize=thread
 # valgrind --tool=helgrind
 CC = cc

@@ -6,7 +6,7 @@
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 21:15:26 by albmarqu          #+#    #+#             */
-/*   Updated: 2025/03/29 20:10:15 by albmarqu         ###   ########.fr       */
+/*   Updated: 2025/03/30 18:55:14 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,26 +41,21 @@ int	main(int argc, char **argv)
 
 	if (check_args(argc, argv))
 	{
-		ft_putstr_fd("ERROR: Invalid arguments", 1);
+		printf("ERROR: Invalid arguments");
 		return (1);
 	}
-	// if (ft_atoi(argv[1]) == 1)
-	// {
-	// 	sleep_time((long long)ft_atoi(argv[2]));
-	// 	long long time = gettime();
-	// 	printf("%lld %d %s\n", time, 1, "died");
-	// 	return (0);
-	// }
 	if (init_data(&data, argc, argv))
 	{
-		ft_putstr_fd("ERROR: Initialization fail", 1);
+		printf("ERROR: Initialization fail");
+		free_destroy(&data);
 		return (1);
 	}
 	if (philo_thread(&data))
 	{
-		ft_putstr_fd("ERROR: Simulation fail", 1);
+		printf("ERROR: Simulation fail");
+		free_destroy(&data);
 		return (1);
 	}
-	free_all(&data);
+	free_destroy(&data);
 	return (0);
 }

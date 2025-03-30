@@ -6,7 +6,7 @@
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 20:18:35 by albmarqu          #+#    #+#             */
-/*   Updated: 2025/03/29 16:02:54 by albmarqu         ###   ########.fr       */
+/*   Updated: 2025/03/30 19:03:16 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	check_args(int argc, char **argv)
 			return (1);
 		i++;
 	}
-	if (ft_atoi(argv[1]) < 0)
+	if (ft_atoi(argv[1]) <= 0)
 		return (1);
 	if (ft_atoi(argv[2]) <= 0 || ft_atoi(argv[3]) <= 0 || ft_atoi(argv[4]) <= 0)
 		return (1);

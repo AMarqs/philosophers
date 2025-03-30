@@ -6,7 +6,7 @@
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 22:21:09 by albmarqu          #+#    #+#             */
-/*   Updated: 2025/03/29 19:59:35 by albmarqu         ###   ########.fr       */
+/*   Updated: 2025/03/30 18:21:03 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ long long	gettime(void)
 
 	if (gettimeofday(&time, NULL) == -1)
 	{
-		ft_putstr_fd("Error getting time", 1);
+		printf("Error getting time");
 		return (1);
 	}
 	current_time = (time.tv_sec * 1000) + (time.tv_usec / 1000);
