@@ -6,11 +6,23 @@
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 22:19:27 by albmarqu          #+#    #+#             */
-/*   Updated: 2025/03/30 19:36:28 by albmarqu         ###   ########.fr       */
+/*   Updated: 2025/04/02 20:36:55 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+void	free_mutex(t_data *data)
+{
+	if (data->log)
+		free(data->log);
+	if (data->dead_mutex)
+		free(data->dead_mutex);
+	if (data->done_mutex)
+		free(data->done_mutex);
+	if (data->forks)
+		free(data->forks);
+}
 
 void	free_all(t_data *data)
 {

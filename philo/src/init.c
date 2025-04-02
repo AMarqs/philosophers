@@ -6,7 +6,7 @@
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 20:44:42 by albmarqu          #+#    #+#             */
-/*   Updated: 2025/03/30 18:35:50 by albmarqu         ###   ########.fr       */
+/*   Updated: 2025/04/02 20:37:58 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,12 @@ int	init_mutex(t_data *data)
 	data->log = malloc(sizeof(pthread_mutex_t));
 	data->dead_mutex = malloc(sizeof(pthread_mutex_t));
 	data->done_mutex = malloc(sizeof(pthread_mutex_t));
-	if (!data->log || !data->dead_mutex || !data->done_mutex)
+	data->forks = malloc(sizeof(pthread_mutex_t) * data->num_philos);
+	if (!data->log || !data->dead_mutex || !data->done_mutex || !data->forks)
 		return (1);
 	pthread_mutex_init(data->log, NULL);
 	pthread_mutex_init(data->dead_mutex, NULL);
 	pthread_mutex_init(data->done_mutex, NULL);
-	data->forks = malloc(sizeof(pthread_mutex_t) * data->num_philos);
-	if (!data->forks)
-		return (1);
 	while (i < data->num_philos)
 	{
 		pthread_mutex_init(&data->forks[i], NULL);
@@ -50,13 +48,15 @@ int	init_data(t_data *data, int argc, char **argv)
 	data->done = 0;
 	if (init_mutex(data))
 	{
-		printf("Fatal error: malloc: memory allocation error\n");
+		printf("Fatal error: malloc: memory allocation error 1 \n");
+		free_mutex(data);
 		return (1);
 	}
 	data->philos = malloc(sizeof(t_philo) * data->num_philos);
 	if (!data->philos)
 	{
-		printf("Fatal error: malloc: memory allocation error\n");
+		printf("Fatal error: malloc: memory allocation error 2 \n");
+		free_destroy(data);
 		return (1);
 	}
 	return (0);

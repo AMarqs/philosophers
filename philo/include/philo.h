@@ -6,7 +6,7 @@
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 21:33:48 by albmarqu          #+#    #+#             */
-/*   Updated: 2025/03/30 19:10:15 by albmarqu         ###   ########.fr       */
+/*   Updated: 2025/04/02 20:40:20 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@
 # include <stdlib.h>
 # include <pthread.h>
 # include <sys/time.h>
+
+//# define malloc(size) 0
 
 //------------//
 // STRUCTURES //---------------------------------------------------------------
@@ -107,5 +109,6 @@ int			ft_atoi(char *str);
 void		free_destroy(t_data *data);
 void		free_all(t_data *data);
 void		destroy_mutex(t_data *data);
+void		free_mutex(t_data *data);
 
 #endif

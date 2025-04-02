@@ -6,7 +6,7 @@
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 21:15:26 by albmarqu          #+#    #+#             */
-/*   Updated: 2025/03/30 18:55:14 by albmarqu         ###   ########.fr       */
+/*   Updated: 2025/04/02 20:38:04 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,18 +44,22 @@ int	main(int argc, char **argv)
 		printf("ERROR: Invalid arguments");
 		return (1);
 	}
+	printf("Before initdata\n");
 	if (init_data(&data, argc, argv))
 	{
 		printf("ERROR: Initialization fail");
-		free_destroy(&data);
 		return (1);
 	}
+	printf("Before philo thread\n");
+
 	if (philo_thread(&data))
 	{
 		printf("ERROR: Simulation fail");
 		free_destroy(&data);
 		return (1);
 	}
+	printf("Before free destroy\n");
+
 	free_destroy(&data);
 	return (0);
 }

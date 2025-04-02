@@ -85,3 +85,12 @@ pthread_mutex_unlock(data->log);
 
 
 
+
+
+ARREGLAR
+
+data race en:
+- print log
+- monitor
+
+valgrind --fair-sched=yes --tool=helgrind ./philo 5 600 300 300  
