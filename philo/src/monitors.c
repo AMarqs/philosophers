@@ -6,21 +6,36 @@
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 21:15:04 by albmarqu          #+#    #+#             */
-/*   Updated: 2025/03/30 19:09:37 by albmarqu         ###   ########.fr       */
+/*   Updated: 2025/04/03 13:32:34 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
+int	dead_condition(t_data *data, int i)
+{
+	long long	dead_time;
+	int			eating;
+
+	pthread_mutex_lock(data->meal_mutex);
+	dead_time = gettime() - data->philos[i].last_meal;
+	pthread_mutex_unlock(data->meal_mutex);
+	pthread_mutex_lock(data->eat_mutex);
+	eating = data->philos[i].eating;
+	pthread_mutex_unlock(data->eat_mutex);
+	if (dead_time > data->time_die && eating == 0)
+		return (1);
+	return (0);
+}
+
 int	dead_monitor(t_data	*data)
 {
-	int	i;
+	int			i;
 
 	i = 0;
 	while (i < data->num_philos)
 	{
-		if (gettime() - data->philos[i].last_meal > data->time_die
-			&& data->philos[i].eating == 0)
+		if (dead_condition(data, i))
 		{
 			print_log(data, data->philos[i].id, "died");
 			pthread_mutex_lock(data->dead_mutex);

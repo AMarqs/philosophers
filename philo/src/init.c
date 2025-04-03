@@ -6,7 +6,7 @@
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 20:44:42 by albmarqu          #+#    #+#             */
-/*   Updated: 2025/04/02 20:37:58 by albmarqu         ###   ########.fr       */
+/*   Updated: 2025/04/03 13:18:11 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,11 @@ int	init_mutex(t_data *data)
 	data->log = malloc(sizeof(pthread_mutex_t));
 	data->dead_mutex = malloc(sizeof(pthread_mutex_t));
 	data->done_mutex = malloc(sizeof(pthread_mutex_t));
+	data->meal_mutex = malloc(sizeof(pthread_mutex_t));
+	data->eat_mutex = malloc(sizeof(pthread_mutex_t));
 	data->forks = malloc(sizeof(pthread_mutex_t) * data->num_philos);
-	if (!data->log || !data->dead_mutex || !data->done_mutex || !data->forks)
+	if (!data->log || !data->dead_mutex || !data->done_mutex
+		|| !data->meal_mutex || !data->eat_mutex || !data->forks)
 		return (1);
 	pthread_mutex_init(data->log, NULL);
 	pthread_mutex_init(data->dead_mutex, NULL);

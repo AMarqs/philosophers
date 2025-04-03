@@ -6,7 +6,7 @@
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 21:33:48 by albmarqu          #+#    #+#             */
-/*   Updated: 2025/04/02 20:40:20 by albmarqu         ###   ########.fr       */
+/*   Updated: 2025/04/03 17:27:11 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ typedef struct s_data
 	pthread_mutex_t	*dead_mutex;
 	int				done;
 	pthread_mutex_t	*done_mutex;
+	pthread_mutex_t	*meal_mutex;
+	pthread_mutex_t	*eat_mutex;
 	long long		init_time;
 	pthread_mutex_t	*log;
 	pthread_mutex_t	*forks;
@@ -86,13 +88,17 @@ int			philo_thread(t_data *data);
 // routine.c
 void		*philo_routine(void *arg);
 int			dead_check(t_data *data);
+
+// actions.c
 void		eat(t_philo	*philo);
+void		take_forks(t_philo *philo);
 void		zzz(t_philo	*philo);
 void		think(t_philo	*philo);
 
 // monitors.c
 void		*monitor(void *arg);
 int			dead_monitor(t_data *data);
+int			dead_condition(t_data *data, int i);
 int			meal_monitor(t_data *data);
 
 // utils.c

@@ -6,7 +6,7 @@
 #    By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/17 12:52:14 by albmarqu          #+#    #+#              #
-#    Updated: 2025/04/02 20:20:17 by albmarqu         ###   ########.fr        #
+#    Updated: 2025/04/03 17:27:26 by albmarqu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SRCS = 	main.c \
 		init.c \
 		thread.c \
 		routine.c \
+		actions.c \
 		monitors.c \
 		utils.c \
 		basic_functions.c \
@@ -31,7 +32,7 @@ OBJ = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 INC_DIR = include
 HEADERS := -I $(INC_DIR)
 
-FLAGS = -Wall -Wextra -Werror -g #-fsanitize=address
+FLAGS = -Wall -Wextra -Werror -g -pthread #-fsanitize=address
 # 
 # -fsanitize=thread
 # valgrind --tool=helgrind

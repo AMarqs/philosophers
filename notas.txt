@@ -43,12 +43,6 @@ pthread_create(&meal_thread, NULL, meal_monitor, data);
 pthread_join(meal_thread, NULL);
 
 
-
-
-
-
-
-
 --------
 MONITOR
 --------
@@ -57,12 +51,6 @@ dead_monitor ---------------------------------------------------------
 pthread_mutex_lock(data->dead_mutex);
 data->dead = 1;
 pthread_mutex_unlock(data->dead_mutex);
-
-
-
-
-
-
 
 
 print_log ------------------------------------------------------------
@@ -74,23 +62,15 @@ pthread_mutex_unlock(data->log);
 
 
 
-- hace una funcion dead loop en threads.c
-
-
-
-
-
-
-
-
-
-
-
-
 ARREGLAR
 
 data race en:
-- print log
-- monitor
+- print_log - dead_monitor -> data race data_dead -> HECHO
+- eat - dead_monitor -> data race de last_meal -> HECHO
+- eat - dead_monitor -> data race en eating -> HECHO
+
+one philo -> HECHO
 
 valgrind --fair-sched=yes --tool=helgrind ./philo 5 600 300 300  
+valgrind --tool=helgrind -s ./philo 5 400 200 200             
+valgrind --tool=helgrind -s -fsanitize=thread ./philo 5 400 200 200

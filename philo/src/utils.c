@@ -6,7 +6,7 @@
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 22:21:09 by albmarqu          #+#    #+#             */
-/*   Updated: 2025/03/30 18:21:03 by albmarqu         ###   ########.fr       */
+/*   Updated: 2025/04/03 13:34:13 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,9 @@ void	print_log(t_data *data, int philo_id, char *log)
 	if (!data || !data->log)
 		return ;
 	pthread_mutex_lock(data->log);
+	pthread_mutex_lock(data->dead_mutex);
 	if (!data->dead)
 		printf("%lld %d %s\n", actual_time, philo_id, log);
+	pthread_mutex_unlock(data->dead_mutex);
 	pthread_mutex_unlock(data->log);
 }

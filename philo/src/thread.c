@@ -6,7 +6,7 @@
 /*   By: albmarqu <albmarqu@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 17:53:49 by albmarqu          #+#    #+#             */
-/*   Updated: 2025/03/30 18:31:15 by albmarqu         ###   ########.fr       */
+/*   Updated: 2025/04/03 16:13:32 by albmarqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,13 @@ int	init_philos(t_data *data)
 	return (0);
 }
 
+void	one_philo(t_data *data)
+{
+	print_log(data, 1, "has taken a fork");
+	sleep_time(data->time_die);
+	print_log(data, 1, "died");
+}
+
 int	philo_thread(t_data *data)
 {
 	int			i;
@@ -43,16 +50,21 @@ int	philo_thread(t_data *data)
 	data->init_time = gettime();
 	if (data->init_time == 1 || init_philos(data))
 		return (1);
-	i = -1;
+	if (data->num_philos == 1)
+	{
+		one_philo(data);
+		return (0);
+	}
 	if (pthread_create(&monitor_thread, NULL, &monitor, data) != 0)
 		return (1);
+	i = -1;
 	while (++i < data->num_philos)
 		if (pthread_create(&data->philos[i].thread, NULL,
 				&philo_routine, &data->philos[i]) != 0)
 			return (1);
-	i = -1;
 	if (pthread_join(monitor_thread, NULL) != 0)
 		return (1);
+	i = -1;
 	while (++i < data->num_philos)
 		if (pthread_join(data->philos[i].thread, NULL) != 0)
 			return (1);
