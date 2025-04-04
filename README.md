@@ -102,3 +102,8 @@ Las reglas específicas para la parte bonus son:
 - Los tenedores están en el centro de la mesa.
 - Los tenedores no tienen estados de memoria, pero el numero de disponibilidades está representados por un semáforo.
 - Cada filósofo debe ser un proceso, y el proceso principal no debe ser un filósofo.
+
+---
+
+> [!NOTE]
+> La teoría asocidada a este proyecto y mi desarrollo del mismo lo puedes encontrar en: [Desarrollo Philosophers](https://amarqs.gitbook.io/amarqs-docs/42/philosophers)
