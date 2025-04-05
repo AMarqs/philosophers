@@ -29,6 +29,8 @@ int	init_mutex(t_data *data)
 	pthread_mutex_init(data->log, NULL);
 	pthread_mutex_init(data->dead_mutex, NULL);
 	pthread_mutex_init(data->done_mutex, NULL);
+	pthread_mutex_init(data->meal_mutex, NULL);
+	pthread_mutex_init(data->eat_mutex, NULL);
 	while (i < data->num_philos)
 	{
 		pthread_mutex_init(&data->forks[i], NULL);
